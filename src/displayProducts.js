@@ -1,7 +1,7 @@
 import { formatPrice } from './utils.js';
 import { addToCart } from './cart/setupCart.js';
-const display = (products, htmlElement) => {
-  htmlElement.innerHTML = products
+const display = (products, container) => {
+  container.innerHTML = products
     .map((product) => {
       const { id, name, image, price } = product;
       return `
@@ -29,6 +29,13 @@ const display = (products, htmlElement) => {
     `;
     })
     .join('');
+  container.addEventListener('click', (e) => {
+    const element = e.target.parentElement;
+    const id = element.dataset.id;
+    if (element.classList.contains('product-cart-btn')) {
+      addToCart(id);
+    }
+  });
 };
 
 export default display;
