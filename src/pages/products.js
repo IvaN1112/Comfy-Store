@@ -11,4 +11,12 @@ import setupPrice from '../filters/price.js';
 // specific imports
 import { store } from '../store.js';
 import display from '../displayProducts.js';
-import { getElement } from '../utils.js';
+import { get } from '../utils.js';
+
+const init = () => {
+  display(store, get('.products-container'));
+  get('.page-loading').style.display = 'none';
+  setupSearch(store);
+};
+
+window.addEventListener('DOMContentLoaded', init);
