@@ -14,7 +14,7 @@ const setupSearch = (store) => {
       get(
         '.products-container'
       ).innerHTML = `<h3 class="filter-error">Sorry, no items matched your search.</h3>`;
-    }
+    } // something
   });
 };
 
