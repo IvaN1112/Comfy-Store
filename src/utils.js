@@ -17,10 +17,24 @@ const get = (selection) => {
   );
 };
 
-const formatPrice = () => {};
+const formatPrice = (price) => {
+  const formattedPrice = Intl.NumberFormat({
+    style: 'currency',
+    currency: 'USD',
+  }).format((price / 100).toFixed(2));
+  return formattedPrice;
+};
 
-const getStorageItem = () => {};
-const setStorageItem = () => {};
+const getStorageItem = (item) => {
+  let store = localStorage.getItem(item);
+  if (store) {
+    return JSON.parse(localStorage.getItem(item));
+  }
+  return [];
+};
+const setStorageItem = (name, item) => {
+  localStorage.setItem(name, JSON.stringify(item));
+};
 
 export {
   allProductsUrl,
