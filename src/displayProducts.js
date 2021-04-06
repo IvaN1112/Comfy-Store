@@ -32,8 +32,14 @@ const display = (products, container) => {
   container.addEventListener('click', (e) => {
     const element = e.target.parentElement;
     const id = element.dataset.id;
+    //if it is an icon
     if (element.classList.contains('product-cart-btn')) {
       addToCart(id);
+      return;
+    }
+    //if it is its link parent
+    if (e.target.classList.contains('product-cart-btn')) {
+      addToCart(e.target.dataset.id);
     }
   });
 };
