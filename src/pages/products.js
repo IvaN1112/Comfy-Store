@@ -17,6 +17,8 @@ const init = () => {
   display(store, get('.products-container'));
   get('.page-loading').style.display = 'none';
   setupSearch(store);
+  setupCompanies(store);
+  setupPrice(store);
 };
 
 window.addEventListener('DOMContentLoaded', init);

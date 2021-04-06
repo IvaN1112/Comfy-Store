@@ -3,7 +3,8 @@ import display from '../displayProducts.js';
 const setupSearch = (store) => {
   const input = get('.search-input');
   input.addEventListener('keyup', () => {
-    const value = input.value;
+    const value = input.value.toLowerCase();
+    console.log(value);
     const filteredProducts = store.filter((product) =>
       product.name.toLowerCase().startsWith(value)
     );
